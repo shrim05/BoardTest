@@ -11,6 +11,14 @@ public class MyBoard2VO {
 	private String content;
 	private int readcount;
 	private Timestamp writedate;
+	private int thumbsup;
+	
+	public int getThumbsup() {
+		return thumbsup;
+	}
+	public void setThumbsup(int thumbsup) {
+		this.thumbsup = thumbsup;
+	}
 	public int getNum() {
 		return num;
 	}

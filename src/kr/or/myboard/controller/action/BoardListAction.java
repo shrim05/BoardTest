@@ -27,5 +27,4 @@ public class BoardListAction implements Action{
 		
 		
 	}
-
 }

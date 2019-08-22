@@ -37,37 +37,68 @@ private SqlMapClient smc;
 
 	@Override
 	public void insertBoard(MyBoard2VO bvo) {
-		// TODO Auto-generated method stub
-		
+		try{
+			smc.insert("board.insertBoard",bvo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void updateReadCount(String num) {
-		// TODO Auto-generated method stub
-		
+		try {
+			smc.update("board.updateReadCount",num);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
-	public MyBoard2VO selectOneBoardByNum(int num) {
-		// TODO Auto-generated method stub
-		return null;
+	public MyBoard2VO selectOneBoardByNum(String num) {
+		MyBoard2VO bv = null;
+		try {
+			bv = (MyBoard2VO) smc.queryForObject("board.selectOneBoardByNum",num);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bv;
 	}
 
 	@Override
 	public void updateBoard(MyBoard2VO bvo) {
-		// TODO Auto-generated method stub
-		
+		try {
+			smc.update("board.updateBoard",bvo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public MyBoard2VO checkPassWord(MyBoard2VO bvo) {
-		// TODO Auto-generated method stub
-		return null;
+		MyBoard2VO bv = null;
+		try {
+			bv = (MyBoard2VO) smc.queryForObject("checkPassWord",bvo);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bv;
 	}
 
 	@Override
 	public void deleteBoard(String num) {
-		// TODO Auto-generated method stub
-		
+		try {
+			smc.delete("board.deletePost",num);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void updateThumbsUp(String num) {
+		try {
+			smc.update("board.updateThumbsUp",num);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }

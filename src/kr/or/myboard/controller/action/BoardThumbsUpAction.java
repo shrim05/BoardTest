@@ -8,20 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.myboard.dao.BoardDaoImpl;
 import kr.or.myboard.dao.IBoardDao;
-import kr.or.myboard.vo.MyBoard2VO;
 
-public class BoardUpdateAction implements Action{
+public class BoardThumbsUpAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/Board/boardUpdate.jsp";
-		IBoardDao dDao = BoardDaoImpl.getInstance();
-		MyBoard2VO  bv = new MyBoard2VO();
-		bv.setName(request.getParameter("name"));
-		bv.setPass(request.getParameter("pass"));
-		bv.setEmail(request.getParameter("email"));
-		bv.setTitle(request.getParameter("title"));
-		dDao.updateBoard(bv);
+		IBoardDao bDao = BoardDaoImpl.getInstance();
+		String num = request.getParameter("num");
+		bDao.updateThumbsUp(num);
 		
 	}
 

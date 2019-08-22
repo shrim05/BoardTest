@@ -14,24 +14,26 @@
 		insert into myboard2 values()sqc_boardnum.nextval, #pass# , #name# , #email# , #title# ,#content#, 0 ,sysdate)
 	</insert>
      
-     <update id="updateReadCount" parameterClass="Integer">
-     	update myboard2 set readcount= readcount+1 where num = #Integer#
+     <update id="updateReadCount" parameterClass="String">
+     	update myboard2 set readcount= readcount+1 where num = #String#
      </update>
      <update id="updateBoard" parameterClass="boardVO">
      	update myboard2 set name=#name#, email=#email#, pass=#pass#, title=#title#, content=#content#,
      	where num = #num#
      </update>
-     <select id="selectOneBoardByNum" parameterClass="Integer" resultClass="boardVO">
-     	select * from myboard2 where num = #Integer#
+     <select id="selectOneBoardByNum" parameterClass="String" resultClass="boardVO">
+     	select * from myboard2 where num = #String#
      </select>
      <select id="checkPassWord" parameterClass="boardVO" resultClass="boardVO">
      	select * from myboard2 where num = #num# and pass=#pass#
      </select>
      
-     <delete id="deletePost" parameterClass="Integer">
-     	delete myboard2 where num=#Integer# 
+     <delete id="deletePost" parameterClass="String">
+     	delete myboard2 where num=#String# 
      </delete>
-     
+     <update id ="updateThumbsUp" parameterClass="String"> 
+     	update myboard2 set thumbsup = thumbsup+1 where num=#String#
+     </update>
      
 </sqlMap>
 

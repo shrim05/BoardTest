@@ -2,6 +2,8 @@ package kr.or.myboard.controller;
 
 import kr.or.myboard.controller.action.Action;
 import kr.or.myboard.controller.action.BoardListAction;
+import kr.or.myboard.controller.action.BoardUpdateAction;
+import kr.or.myboard.controller.action.BoardViewAction;
 import kr.or.myboard.controller.action.BoardWriteAction;
 
 public class ActionFactory {
@@ -24,7 +26,12 @@ public class ActionFactory {
 			action = new BoardListAction();
 		}else if(command.equals("board_write")) {
 			action = new BoardWriteAction();
+		}else if(command.equals("board_view")) {
+			action = new BoardViewAction();
+		}else if(command.equals("board_update")) {
+			action = new BoardUpdateAction();
 		}
+		
 		return action;
 	}
 	
