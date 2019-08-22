@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+         PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+         "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="board">
+   
+
+	<!-- 모든 상품정보  -->
+   <select id="selectAllBoards" resultClass="boardVO">
+   		select * from myboard2 order by num desc
+   </select>
+     <insert id="insertBoard" parameterClass="boardVO">
+		insert into myboard2 values()sqc_boardnum.nextval, #pass# , #name# , #email# , #title# ,#content#, 0 ,sysdate)
+	</insert>
+     
+     <update id="updateReadCount" parameterClass="Integer">
+     	update myboard2 set readcount= readcount+1 where num = #Integer#
+     </update>
+     <update id="updateBoard" parameterClass="boardVO">
+     	update myboard2 set name=#name#, email=#email#, pass=#pass#, title=#title#, content=#content#,
+     	where num = #num#
+     </update>
+     <select id="selectOneBoardByNum" parameterClass="Integer" resultClass="boardVO">
+     	select * from myboard2 where num = #Integer#
+     </select>
+     <select id="checkPassWord" parameterClass="boardVO" resultClass="boardVO">
+     	select * from myboard2 where num = #num# and pass=#pass#
+     </select>
+     
+     <delete id="deletePost" parameterClass="Integer">
+     	delete myboard2 where num=#Integer# 
+     </delete>
+     
+     
+</sqlMap>
+
+
+
