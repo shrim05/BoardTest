@@ -14,13 +14,18 @@
 	font-size: 14px;
 }
 </style>
+<script>
+function fn_paging(curPage) {
+	location.href = "BoardServlet?command=board_list&curPage=" + curPage;
+	}
+</script>
 
 </head>
 <body>
 	<div class="container" id="topContainer" style="display: inline;">
 		<header> <nav>
 		<div id="logo">
-			<img src="../img/ali_logo.png" width="100px" height="100px">
+			<img src="/MyBoardTestVer2/img/ali_logo.png" width="100px" height="100px">
 		</div>
 		<div id="topMenu">
 			<a href="boardServlet?command=board_notice" id="btn_topMenu_notice">공지사항</a>
@@ -66,6 +71,34 @@
 				</tr>
 			</c:forEach>
 		</table>
+		<div>
+			<c:if test="${pagination.curRange ne 1 }">
+				<a href="#" onClick="fn_paging(1)">[처음]</a>
+			</c:if>
+			<c:if test="${pagination.curPage ne 1 }">
+				<a href="#" onClick="fn_paging('${pagination.prevPage}')">[이전]</a>
+			</c:if>
+			<c:forEach var="pageNum" begin="${pagination.startPage}" end="${pagination.endPage }">
+				<c:choose>
+					<c:when test="${pageNum eq pagination.curPage }">
+						<span style="font-weight:bold;"><a href="#" onClick="fn_paging('${pageNum }')">${pageNum }</a></span>
+					</c:when>
+					<c:otherwise>
+						<a href="#" onClick="fn_paging('${pageNum}')">${pageNum }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${pagination.curPage ne pagination.pageCnt && pagination.pageCnt>0 }">
+				<a href="#" onClick="fn_paging('${pagination.nextPage}')">[다음]</a>
+			</c:if>
+			<c:if test="${pagination.curRange ne pagination.rangeCnt && pagination.rangeCnt>0 }">
+				<a href="#" onClick="fn_paging('${pagination.pageCnt}')">[끝]</a>
+			</c:if>
+		</div>
+		<div>
+			총게시글 수 : ${pagination.listCnt } 총페이지수:${pagination.pageCnt } 현재페이지 ${pagination.curPage }
+			현재블럭: ${pagination.curRange } 총블럭수: ${pagination.rangeCnt }
+		</div>
 		</main> </section>
 		<footer> footer </footer>
 	</div>

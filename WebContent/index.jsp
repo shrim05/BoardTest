@@ -7,9 +7,8 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	window.onload = function(){
-		location.href="/kr/or/myboard/controller/BoardServlet?command=board_list";
+		location.href="http://localhost:8181/MyBoardTestVer2/BoardServlet?command=board_list&curPage=1";
 	}
-
 </script>
 </head>
 <body>

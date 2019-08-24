@@ -34,6 +34,15 @@
      <update id ="updateThumbsUp" parameterClass="String"> 
      	update myboard2 set thumbsup = thumbsup+1 where num=#String#
      </update>
+     <!-- paging -->
+	<select id="selectBoardsByCurPage" parameterClass="paginationVO" resultClass="boardVO">
+		SELECT * FROM (SELECT A.*, ROWNUM AS RNUM, COUNT(*) OVER() AS TOTCNT FROM (SELECT * FROM myboard2 ORDER BY 1 desc) A)
+		WHERE RNUM between #curPage#*#pageSize#-(#pageSize#-1) AND #curPage#*#pageSize#
+	</select>
+	<select id="getPages" resultClass="int">
+		select count(*) from myboard2
+	</select>
+	
      
 </sqlMap>
 

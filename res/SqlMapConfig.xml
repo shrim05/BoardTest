@@ -20,6 +20,7 @@
 	형식) <typeAlias alias="alias명" type="클래스의 풀네임"/>
 	 -->
 	<typeAlias alias="boardVO" type="kr.or.myboard.vo.MyBoard2VO"/> 
+	<typeAlias alias="paginationVO" type="kr.or.myboard.vo.Pagination"/> 
 	
 
 	<!-- 

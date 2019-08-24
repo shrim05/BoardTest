@@ -12,7 +12,22 @@ public class MyBoard2VO {
 	private int readcount;
 	private Timestamp writedate;
 	private int thumbsup;
+	private int startIndex;
+	private int cntPerPage;
 	
+	
+	public int getStartIndex() {
+		return startIndex;
+	}
+	public void setStartIndex(int startIndex) {
+		this.startIndex = startIndex;
+	}
+	public int getCntPerPage() {
+		return cntPerPage;
+	}
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
+	}
 	public int getThumbsup() {
 		return thumbsup;
 	}

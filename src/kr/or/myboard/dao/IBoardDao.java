@@ -3,6 +3,7 @@ package kr.or.myboard.dao;
 import java.util.List;
 
 import kr.or.myboard.vo.MyBoard2VO;
+import kr.or.myboard.vo.Pagination;
 
 public interface IBoardDao {
 	public List<MyBoard2VO> selectAllBoards();
@@ -13,5 +14,7 @@ public interface IBoardDao {
 	public MyBoard2VO checkPassWord(MyBoard2VO bvo);
 	public void deleteBoard(String num);
 	public void updateThumbsUp(String num);
+	public int getPageCnt();
+	public List<MyBoard2VO> selectBoardsByCurPage(Pagination pagination);
 	
 }

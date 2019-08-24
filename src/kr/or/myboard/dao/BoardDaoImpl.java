@@ -7,6 +7,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.or.myboard.util.SqlMapClientFactory;
 import kr.or.myboard.vo.MyBoard2VO;
+import kr.or.myboard.vo.Pagination;
 
 
 public class BoardDaoImpl implements IBoardDao{
@@ -100,5 +101,28 @@ private SqlMapClient smc;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public int getPageCnt() {
+		int result = 0;
+		try {
+			result = (int) smc.queryForObject("board.getPages");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	@Override
+	public List<MyBoard2VO> selectBoardsByCurPage(Pagination pagination) {
+		List<MyBoard2VO> lbv = null;
+		try {
+		lbv = smc.queryForList("board.selectBoardsByCurPage",pagination);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return lbv;
 	}
 }
