@@ -22,13 +22,14 @@ public class BoardServlet extends HttpServlet {
      */
     public BoardServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String folder = "D:/contents";
+		
 		String command = request.getParameter("command");
 		System.out.println("받은 요청 = "+command);
 		ActionFactory af = ActionFactory.getInstance();

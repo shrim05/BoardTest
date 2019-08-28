@@ -32,15 +32,16 @@ function fn_paging(curPage) {
 		</div>
 
 		<div id="topMenu_search_div">
-			<form action="boardServlet?command=board_search" method="get"
+			<form action="BoardServlet?command=board_search" method="get"
 				name="topMenu_search" id="search"
 				onsubmit="return topMenu_search_check()">
 				<input type="hidden" name="kind" value="search"> <select
 					name="searchCombo">
 					<option value="subject" selected>제목</option>
 					<option value="name">이름</option>
-				</select> <input type="text" size="20" name="keyword" > <input
-					type="button" name="submit" value="검색">
+				</select> 
+				<input type="text" size="20" name="keyword" > 
+				<input type="button" name="submit" value="검색">
 			</form>
 		</div>
 		</nav> </header>
@@ -48,8 +49,8 @@ function fn_paging(curPage) {
 		<main>
 			<table class="list">
 				<tr>
-					<td colspan="5" style="border: white; text-align: right"><a
-						href="boardServlet?command=board_write_form"> 게시글 등록 </a></td>
+					<td colspan="5" style="border: white; text-align: right">
+					<a href="BoardServlet?command=board_write_form"> 게시글 등록 </a></td>
 				</tr>
 				<tr>
 					<th>번호</th>

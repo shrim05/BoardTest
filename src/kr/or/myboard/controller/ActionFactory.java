@@ -5,10 +5,11 @@ import kr.or.myboard.controller.action.BoardListAction;
 import kr.or.myboard.controller.action.BoardUpdateAction;
 import kr.or.myboard.controller.action.BoardViewAction;
 import kr.or.myboard.controller.action.BoardWriteAction;
+import kr.or.myboard.controller.action.BoardWriteFormAction;
 
 public class ActionFactory {
 	private static ActionFactory instance;
-
+	
 	private ActionFactory() {
 		super();
 	}
@@ -30,6 +31,8 @@ public class ActionFactory {
 			action = new BoardViewAction();
 		}else if(command.equals("board_update")) {
 			action = new BoardUpdateAction();
+		}else if(command.equals("board_write_form")) {
+			action = new BoardWriteFormAction();
 		}
 		
 		return action;

@@ -33,6 +33,6 @@
 			<th>내용</th><td>${board.content}</td>
 		</tr>
 	</table>
-		
+		<a href="javascript:history.back();">뒤로가기</a>
 </body>
 </html>
