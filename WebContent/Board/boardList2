@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>커뮤니티게시판</title>
+    <style>
+        #logo{
+            font-size: 14px;
+            
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container" id="topContainer" style="display: inline;"> 
+        <header>
+            <nav>
+                <div id="logo"><img src="/img/ali_logo.png"></div>
+                <div id = "topMenu">
+                <a href="boardServlet?command=board_notice" id="btn_topMenu_notice">공지사항</a>
+                </div> 
+            
+                <div id="topMenu_search_div">
+                        <form action="boardServlet?command=board_search" method="get" name="topMenu_search" id="search" 
+                        onsubmit="return topMenu_search_check()">
+                        <input type="hidden" name="kind" value="search">
+                        <select name="searchCombo">
+                            <option value="subject" selected>제목</option>
+                            <option value="name">이름</option>
+                        </select>
+                        <input type="text" size="20" name="keyword" value>
+                        <input type="button" name="submit" value="검색" >
+                    </form>
+                    </div>
+             </nav>
+         </header>
+         <section class="content">
+            <main>
+                
+            </main> 
+        </section>
+         <footer>
+             footer
+         </footer>
+    </div>
+</body>
+</html>

@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	window.onload = function(){
-		location.href="http://localhost:8998/MyBoardTestVer2/BoardServlet?command=board_list&curPage=1";
+		location.href="<%=request.getContextPath()%>/BoardServlet?command=board_list&curPage=1";
 	}
 </script>
 </head>
